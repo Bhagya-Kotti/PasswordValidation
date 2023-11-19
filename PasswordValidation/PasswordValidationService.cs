@@ -15,6 +15,6 @@ namespace PasswordValidation.Services
         {
             return  Regex.Matches(passWord,"[0-9]").Count;
             
-        }
+        }        
     }
 }
