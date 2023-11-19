@@ -11,19 +11,37 @@ namespace PasswordValidation.Services.Test
         PasswordValidationService _passwordValidationService = new PasswordValidationService();
         //1.Lenght should be 8 charachers
         //2.Atleast 2 numbers
+
         [Test]
-        public void ScenarioWherePasswordIsAtleastEightCharctersLong()
+        public void ScenarioTrueWherePasswordIsAtleastEightCharctersLong()
         {
             string passWord = "Somepassword";
             int  actualValue = _passwordValidationService.GetLenghOfTheInputPasswordValue(passWord);
             int expectedValue = 8;
             Assert.IsTrue(actualValue >= expectedValue);
         }
-
-        [Test]        
-        public void ScenarioWherePasswordAtleastHaveTwoNumerics()
+        [Test]
+        public void ScenarioFalseWherePasswordIsAtleastEightCharctersLong()
         {
-            int actualValue = 1 ;
+            string passWord = "System";
+            int actualValue = _passwordValidationService.GetLenghOfTheInputPasswordValue(passWord);
+            int expectedValue = 8;
+            Assert.IsFalse(actualValue >= expectedValue);
+        }
+
+        [Test]
+        public void ScenarioFalseWherePasswordAtleastHaveTwoNumerics()
+        {
+            string passWord = "somepassword";
+            int actualValue = _passwordValidationService.GetNumberOfNumericsInInputPasswordValue(passWord);
+            int expectedValue = 2;
+            Assert.IsFalse(actualValue >= expectedValue);
+        }
+        [Test]
+        public void ScenarioTrueWherePasswordAtleastHaveTwoNumerics()
+        {
+            string passWord = "somepassword12";
+            int actualValue = _passwordValidationService.GetNumberOfNumericsInInputPasswordValue(passWord);
             int expectedValue = 2;
             Assert.IsTrue(actualValue >= expectedValue);
         }

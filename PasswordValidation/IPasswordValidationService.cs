@@ -9,5 +9,6 @@ namespace PasswordValidation.Service
     public interface IPasswordValidationService
     {
         int GetLenghOfTheInputPasswordValue(string passWord);
+        int GetNumberOfNumericsInInputPasswordValue(string passWord);
     }
 }
