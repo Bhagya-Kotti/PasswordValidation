@@ -19,5 +19,13 @@ namespace PasswordValidation.Services.Test
             int expectedValue = 8;
             Assert.IsTrue(actualValue >= expectedValue);
         }
+
+        [Test]        
+        public void ScenarioWherePasswordAtleastHaveTwoNumerics()
+        {
+            int actualValue = 1 ;
+            int expectedValue = 2;
+            Assert.IsTrue(actualValue >= expectedValue);
+        }
     }
 }
