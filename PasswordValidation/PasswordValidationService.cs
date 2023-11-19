@@ -1,4 +1,5 @@
 ﻿using PasswordValidation.Service;
+using PasswordValidation.Servies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,12 @@ namespace PasswordValidation.Services
                 int numericInPassword = GetNumberOfNumericsInInputPasswordValue(passWord);
                 if (numericInPassword < 2)
                 {
-                    return "Password must be at least 8 characters.The password must contain at least 2 numbers.";
+                    return Constants.inValidLengthMessage+Constants.inValidnumericsMessage;
                 }
-                return "Valid Passowrd";
+                return Constants.validPasswordMessage;
             }
 
-            return "Password must be at least 8 characters.";
+            return Constants.inValidLengthMessage;
 
         }
     }

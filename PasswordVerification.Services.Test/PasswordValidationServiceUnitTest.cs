@@ -1,6 +1,7 @@
 ﻿
 using NUnit.Framework;
 using PasswordValidation.Service;
+using PasswordValidation.Servies;
 using System;
 
 namespace PasswordValidation.Services.Test
@@ -46,12 +47,12 @@ namespace PasswordValidation.Services.Test
             Assert.IsTrue(actualValue >= expectedValue);
         }
 
-        [Test]        
-        public void ScenarioForCheckingAValidPassword()
+        [Test]
+        [TestCase("somepassword", Constants.inValidLengthMessage + Constants.inValidnumericsMessage)]
+        [TestCase("interview2023", Constants.validPasswordMessage)]
+        public void ScenarioForCheckingAValidPassword(string passWord, string expectedValue)
         {
-            string passWord = "somepassword";
-            string actualValue = _passwordValidationService.CheckForValidPassword(passWord);
-            string expectedValue = "Password must be at least 8 characters.The password must contain at least 2 numbers.";            
+            string actualValue = _passwordValidationService.CheckForValidPassword(passWord);          
             Assert.That(actualValue, Is.EqualTo(expectedValue));
         }
     }
