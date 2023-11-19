@@ -10,6 +10,7 @@ namespace PasswordValidation.Service
     {
         int GetLenghOfTheInputPasswordValue(string passWord);
         int GetNumberOfNumericsInInputPasswordValue(string passWord);
-        
+        string CheckForValidPassword(string password);
+
     }
 }

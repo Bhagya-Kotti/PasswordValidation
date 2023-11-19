@@ -45,12 +45,13 @@ namespace PasswordValidation.Services.Test
             int expectedValue = 2;
             Assert.IsTrue(actualValue >= expectedValue);
         }
-        [Test]
-        
+
+        [Test]        
         public void ScenarioForCheckingAValidPassword()
         {
-            string actualValue = "Valid Password";
-            string expectedValue = "Password must be at least 8 characters.";            
+            string passWord = "somepassword";
+            string actualValue = _passwordValidationService.CheckForValidPassword(passWord);
+            string expectedValue = "Password must be at least 8 characters.The password must contain at least 2 numbers.";            
             Assert.That(actualValue, Is.EqualTo(expectedValue));
         }
     }
